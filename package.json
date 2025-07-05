@@ -1,36 +1,42 @@
 {
-  "name": "loan-management-backend",
-  "version": "1.0.0",
-  "description": "Loan Management System Backend with Admin and Subadmin Support",
-  "main": "app.js",
+  "name": "loan-management-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.5.0",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
-    "cors": "^2.8.5",
-    "pdfkit": "^0.13.0",
-    "exceljs": "^4.3.0",
-    "node-cron": "^3.0.2",
-    "multer": "^1.4.5-lts.1",
-    "moment": "^2.29.4",
-    "dotenv": "^16.3.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "axios": "^1.6.2",
+    "react-hook-form": "^7.48.2",
+    "react-query": "^3.39.3",
+    "zustand": "^4.4.7",
+    "lucide-react": "^0.294.0",
+    "recharts": "^2.8.0",
+    "react-hot-toast": "^2.4.1",
+    "date-fns": "^2.30.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
-  "keywords": [
-    "loan-management",
-    "backend",
-    "nodejs",
-    "express",
-    "mongodb"
-  ],
-  "author": "Your Name",
-  "license": "MIT"
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react": "^4.1.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
 }
