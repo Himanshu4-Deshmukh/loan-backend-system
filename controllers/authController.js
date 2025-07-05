@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const { createMessage } = require('../services/messageService');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import { createMessage } from '../services/messageService.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key_here';
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your_refresh_secret_key_here';
@@ -413,4 +413,4 @@ const authController = {
     }
 };
 
-module.exports = authController;
+export default authController;

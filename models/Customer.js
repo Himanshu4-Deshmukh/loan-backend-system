@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const customerSchema = new mongoose.Schema({
     // Personal Details
@@ -225,4 +225,4 @@ customerSchema.methods.getSummary = function() {
     };
 };
 
-module.exports = mongoose.model('Customer', customerSchema);
+export default mongoose.model('Customer', customerSchema);

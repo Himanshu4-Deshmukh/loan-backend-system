@@ -1,21 +1,26 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import 'dotenv/config';
 
-const connectDB = require('./config/database');
-const errorHandler = require('./middleware/errorHandler');
-const { runDailyTasks } = require('./services/cronService');
+import connectDB from './config/database.js';
+import errorHandler from './middleware/errorHandler.js';
+import { runDailyTasks } from './services/cronService.js';
 
 // Import routes
-const authRoutes = require('./routes/authRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const customerRoutes = require('./routes/customerRoutes');
-const loanRoutes = require('./routes/loanRoutes');
-const paymentRoutes = require('./routes/paymentRoutes');
-const reportRoutes = require('./routes/reportRoutes');
-const dashboardRoutes = require('./routes/dashboardRoutes');
-const messageRoutes = require('./routes/messageRoutes');
+import authRoutes from './routes/authRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import customerRoutes from './routes/customerRoutes.js';
+import loanRoutes from './routes/loanRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
+import reportRoutes from './routes/reportRoutes.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -26,7 +31,7 @@ connectDB();
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // API Routes
 app.use('/api/auth', authRoutes);
@@ -49,7 +54,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve static files (frontend)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 // Error handling middleware
@@ -72,4 +77,4 @@ app.listen(PORT, () => {
     console.log(`📅 Cron jobs: Daily overdue checks enabled`);
 });
 
-module.exports = app;
+export default app;

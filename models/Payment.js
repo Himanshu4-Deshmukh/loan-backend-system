@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const paymentSchema = new mongoose.Schema({
     loanId: { 
@@ -158,4 +158,4 @@ paymentSchema.methods.getSummary = function() {
     };
 };
 
-module.exports = mongoose.model('Payment', paymentSchema);
+export default mongoose.model('Payment', paymentSchema);

@@ -1,6 +1,6 @@
-const cron = require('node-cron');
-const Loan = require('../models/Loan');
-const { createMessage } = require('./messageService');
+import cron from 'node-cron';
+import Loan from '../models/Loan.js';
+import { createMessage } from './messageService.js';
 
 // Function to update loan status automatically
 const updateLoanStatus = async (loanId) => {
@@ -136,7 +136,7 @@ const runDailyTasks = () => {
     console.log('   - Monthly summary: 1st of month 8:00 AM');
 };
 
-module.exports = {
+export {
     updateLoanStatus,
     checkDueSoonLoans,
     runDailyOverdueCheck,

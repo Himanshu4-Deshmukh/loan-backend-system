@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import authController from '../controllers/authController.js';
+import { authenticateToken } from '../middleware/auth.js';
+
 const router = express.Router();
-const authController = require('../controllers/authController');
-const { authenticateToken } = require('../middleware/auth');
 
 // Authentication routes
 router.post('/signup', authController.signup);
@@ -21,4 +22,4 @@ router.put('/change-password', authenticateToken, authController.changePassword)
 // Session validation
 router.get('/validate-session', authenticateToken, authController.validateSession);
 
-module.exports = router;
+export default router;

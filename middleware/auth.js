@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key_here';
 
@@ -131,7 +131,7 @@ const checkWorkingHours = (req, res, next) => {
     next();
 };
 
-module.exports = {
+export {
     authenticateToken,
     checkPermission,
     requireRole,

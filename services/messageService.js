@@ -1,4 +1,4 @@
-const Message = require('../models/Message');
+import Message from '../models/Message.js';
 
 // Create a new message
 const createMessage = async (messageData) => {
@@ -179,7 +179,7 @@ const cleanupOldMessages = async (daysOld = 30) => {
     }
 };
 
-module.exports = {
+export {
     createMessage,
     createSystemAlert,
     createOverdueNotification,
